@@ -29,9 +29,24 @@ public:
 	
 	std::map<int, int> v_edges;
 	std::vector<int> v_path;
-	
-	int findPath(int v, int s, std::vector<int> &path);
+
+	///use the method of DFS to find a path from vertex v to s 	
+	int findPathBFP(int v, int s, std::vector<int> &path);
+
+	/// breadth first path
+	int BFP(int v);
+
+	/// breadth first search
+	int BFS(int s);
+
+
+	///use the method of DFS to find a path from vertex v to s 	
+	int findPathDFS(int v, int s, std::vector<int> &path);
+
+	/// depth first path
 	int DFP(int s);
+
+	/// depth first search
 	int DFS(int v);
 
 	int printVertex();

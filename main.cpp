@@ -55,7 +55,7 @@ int main()
 	
 	vector<int> path;
 
-	graph->findPath(1, 10, path);
+	graph->findPathDFS(1, 10, path);
 	printVector(path);
 	
 

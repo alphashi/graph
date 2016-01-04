@@ -4,9 +4,66 @@
 #include "graph.h"
 
 
+///use the method of DFS to find a path from vertex v to s 	
+int findPathBFP(int v, int s, std::vector<int> &path)
+{
+	
 
-// find all the path from v to s
-int Graph::findPath(int v, int s, std::vector<int> &path)
+
+
+	return RET_SUCCESS;
+}
+
+/// breadth first path
+int BFP(int v)
+{
+
+
+
+
+	return RET_SUCCESS;
+}
+
+	/// breadth first search
+int Graph::BFS(int s)
+{
+	std::set<int> stack;
+	std::set<int>::iterator siter;
+
+//	mark[s] = true;
+	stack.insert(s);
+
+//	stack.insert(adj_matrix[s].begini(),
+//			adj_matrix[s].end());
+
+	while (!stack.empty())
+	{
+		int v = *(stack.begin());
+		stack.erase(stack.begin());
+
+		mark[v] = true;
+		for (siter = adj_matrix[v].begin();
+				siter != adj_matrix[v].end();
+				siter ++)
+		{
+			if (!mark[*siter])
+			{
+				v_edges[*siter] = v;
+				mark[*siter] = true;
+				stack.insert(adj_matrix[*siter].begin(),
+						adj_matrix[*siter].end());
+			}
+		}
+	}
+	
+
+	return RET_SUCCESS;
+}
+
+
+
+///use the method of DFS to find a path from vertex v to s 	
+int Graph::findPathDFS(int v, int s, std::vector<int> &path)
 {
 
 	INF_LOG(GRAPH_DEBUG, "find a path: %d --> %d...\n", v, s);
@@ -42,7 +99,7 @@ int Graph::DFP(int s)
 	v_edges.clear();
 	v_path.clear();
 	
-	DFS(s);
+	BFS(s);
 
 	INF_LOG(GRAPH_DEBUG, "END DFP...\n");
 	return RET_SUCCESS;
